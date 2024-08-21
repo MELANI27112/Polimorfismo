@@ -1,32 +1,38 @@
-# Prerequisites
-*.d
+// Clase base
+class Animal {
+    // Método que será sobreescrito
+    public void sonido() {
+        System.out.println("El animal hace un sonido");
+    }
+}
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+// Clase derivada 1
+class Perro extends Animal {
+    @Override
+    public void sonido() {
+        System.out.println("El perro ladra");
+    }
+}
 
-# Precompiled Headers
-*.gch
-*.pch
+// Clase derivada 2
+class Gato extends Animal {
+    @Override
+    public void sonido() {
+        System.out.println("El gato maúlla");
+    }
+}
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+// Clase Main para demostrar el polimorfismo
+public class Main {
+    public static void main(String[] args) {
+        // Uso de polimorfismo: referencia de la clase padre, objeto de la clase hija
+        Animal miAnimal = new Animal();  // Instancia de la clase base
+        Animal miPerro = new Perro();    // Instancia de la clase derivada Perro
+        Animal miGato = new Gato();      // Instancia de la clase derivada Gato
 
-# Fortran module files
-*.mod
-*.smod
+        miAnimal.sonido();  // Llamada al método de la clase base
+        miPerro.sonido();   // Llamada al método sobrescrito en la clase Perro
+        miGato.sonido();    // Llamada al método sobrescrito en la clase Gato
+    }
+}
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
